@@ -8,9 +8,12 @@ const GoalInput = props => {
   return <Modal visible={props.visibility}>
     <View style={styles.inputContainer}>
       <TextInput style={styles.input} onChangeText={(word) => setEnteredGoal(word)} placeholder='Course Goal' />
-      <Button title="Add" onPress={
-        () => props.onAddGoal(enteredGoal)
-      } />
+      <View style={styles.buttons}>
+        <Button title='Cancel' color="red" onPress={props.cancel} />
+        <Button title="Add" onPress={
+          () => props.onAddGoal(enteredGoal)
+        } />
+      </View>
     </View>
   </Modal>
 }
@@ -18,12 +21,17 @@ const GoalInput = props => {
 
 const styles = StyleSheet.create({
   inputContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    flex: 1,
+    justifyContent: 'center',
     alignItems: 'center'
   },
   input: {
     width: '80%', borderColor: 'black', borderWidth: 1, padding: 2
+  },
+  buttons: {
+    width:'60%',
+    flexDirection: 'row',
+    justifyContent: 'space-between'
   }
 });
 
