@@ -7,6 +7,7 @@ import GoalInput from './components/GoalInput';
 export default function App() {
  
   const [courseGoal, setCourseGoal] = useState([]);
+const [modalShow,setModalShow]=useState(false);
 
   const addGoalHandler = (goalTitle) => {
     console.log(goalTitle,'title');
@@ -20,8 +21,8 @@ export default function App() {
 
   return (
     <View style={styles.screen}>
-      <Button title='show modal'/>
-    <GoalInput onAddGoal={addGoalHandler} />
+      <Button onPress={()=>{setModalShow(!modalShow)}} title='show modal'/>
+    <GoalInput  visibility={modalShow} onAddGoal={addGoalHandler} />
       <FlatList
         data={courseGoal}
         renderItem={

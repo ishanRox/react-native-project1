@@ -5,7 +5,7 @@ const GoalInput = props => {
 
   const [enteredGoal, setEnteredGoal] = useState('');
 
-  return <Modal visible={false}>
+  return <Modal visible={props.visibility}>
     <View style={styles.inputContainer}>
       <TextInput style={styles.input} onChangeText={(word) => setEnteredGoal(word)} placeholder='Course Goal' />
       <Button title="Add" onPress={
